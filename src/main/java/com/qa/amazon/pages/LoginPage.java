@@ -61,14 +61,17 @@ public class LoginPage extends BaseTest {
 	}
 	
 	public void clickSignInafterGivingPassword() {
+		LOG.info("Click Signin After Giving Password");
 		new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(singInBtn)).click();
+		
 	}
 	
 	public void incorrectPasswordVerification() {
+	LOG.info("Verify wrong password or not");
 	Boolean flag =	new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(incorrectPasswordAlert)).isDisplayed();
 	Assert.assertTrue(flag);
 	System.out.println("Password is incorrect please enter correct one..");
-		
+	LOG.info("completed");	
 	}
 	
 
