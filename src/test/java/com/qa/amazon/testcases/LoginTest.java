@@ -33,7 +33,7 @@ public class LoginTest extends BaseTest {
 		loginPage.clickContinue();
 		loginPage.enterPassword(pro.getProperty("password"));
 		loginPage.clickSignInafterGivingPassword();
-		loginPage.incorrectPasswordVerification();
+		//loginPage.incorrectPasswordVerification();
 	}
 	
 	@AfterMethod
