@@ -31,7 +31,7 @@ public class BaseTest {
 
 	public BaseTest() {
 			pro = new Properties();
-			String path = "\\src\\main\\java\\com\\qa\\amazon\\config\\";
+			String path = "/src/main/java/com/qa/amazon/config/";
 			
 			FileInputStream fis;
 			try {

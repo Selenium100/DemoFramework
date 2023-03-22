@@ -17,7 +17,7 @@ public class TestUtil extends BaseTest {
 	
 	public static long PAGE_LOAD_TIMEOUT = 30;
 	public static long IMPLICIT_WAIT = 30;
-	public static String TESTDATA_SHEET_PATH = System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\amazon\\testdata";
+	public static String TESTDATA_SHEET_PATH = System.getProperty("user.dir")+"/src/main/java/com/qa/amazon/testdata";
 	
 	XSSFWorkbook workbook;
 	XSSFSheet sheet;
