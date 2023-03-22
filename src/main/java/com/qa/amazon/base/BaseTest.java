@@ -67,7 +67,7 @@ public class BaseTest {
 			DesiredCapabilities cap =new DesiredCapabilities();
 			cap.setCapability("browserName", "chrome");
 			try {
-				driver = new RemoteWebDriver(new URL("http://ec2-35-154-70-244.ap-south-1.compute.amazonaws.com/wd/hub"),cap);
+				driver = new RemoteWebDriver(new URL("http://ec2-35-154-70-244.ap-south-1.compute.amazonaws.com:4444/wd/hub"),cap);
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
