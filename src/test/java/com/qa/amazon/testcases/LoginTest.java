@@ -1,11 +1,14 @@
 package com.qa.amazon.testcases;
 
+import org.testng.ITestListener;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.qa.amazon.base.BaseTest;
 import com.qa.amazon.pages.LoginPage;
+import com.qa.amazon.util.TestUtil;
 
 public class LoginTest extends BaseTest {
 	
@@ -34,7 +37,10 @@ public class LoginTest extends BaseTest {
 	}
 	
 	@AfterMethod
-	public void tearDown() {
+	public void tearDown(ITestResult result) {
+		if(ITestResult.FAILURE == result.getStatus()) {
+			TestUtil.takeScreenshotAtEndOfTest();
+		}
 		driver.quit();
 	}
 

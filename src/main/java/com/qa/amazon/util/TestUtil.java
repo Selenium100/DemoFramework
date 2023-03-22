@@ -69,7 +69,7 @@ public class TestUtil extends BaseTest {
 		
 	}
 	
-	public void takeScreenshotAtEndOfTest() {
+	public static void takeScreenshotAtEndOfTest() {
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		String currentDir = System.getProperty("user.dir");
 		try {
