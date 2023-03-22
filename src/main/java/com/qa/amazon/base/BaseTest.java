@@ -62,8 +62,6 @@ public class BaseTest {
 		String browser = pro.getProperty("browser");
 		LOG.info("browser used is " + browser);
 		if (browser.equalsIgnoreCase("chrome")) {
-			//WebDriverManager.chromedriver().setup();
-			//System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
 			DesiredCapabilities cap =new DesiredCapabilities();
 			cap.setCapability("browserName", "chrome");
 			try {
