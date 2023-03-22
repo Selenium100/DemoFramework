@@ -4,15 +4,20 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.qa.amazon.error.AppError;
@@ -58,11 +63,15 @@ public class BaseTest {
 		LOG.info("browser used is " + browser);
 		if (browser.equalsIgnoreCase("chrome")) {
 			//WebDriverManager.chromedriver().setup();
-			System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("headless");
-			options.addArguments("start-maximized");
-			driver = new ChromeDriver(options);
+			//System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
+			DesiredCapabilities cap =new DesiredCapabilities();
+			cap.setCapability("browserName", "chrome");
+			try {
+				driver = new RemoteWebDriver(new URL("http://ec2-35-154-70-244.ap-south-1.compute.amazonaws.com/wd/hub"),cap);
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else if (browser.equalsIgnoreCase("ff")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
