@@ -57,9 +57,10 @@ public class BaseTest {
 		String browser = pro.getProperty("browser");
 		LOG.info("browser used is " + browser);
 		if (browser.equalsIgnoreCase("chrome")) {
-			WebDriverManager.chromedriver().setup();
+			//WebDriverManager.chromedriver().setup();
+			System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
 			ChromeOptions options = new ChromeOptions();
-			//options.addArguments("headless");
+			options.addArguments("headless");
 			options.addArguments("start-maximized");
 			driver = new ChromeDriver(options);
 		} else if (browser.equalsIgnoreCase("ff")) {
